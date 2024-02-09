@@ -1,16 +1,28 @@
-# This is a sample Python script.
+from flask import Flask, render_template, request, url_for, redirect
+import sqlite3
+from sqlite3 import Error
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+company = input("Company Name")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+class Employee:
+    def __init__(self, name, lastname, email, phone_number):
+        self.name = name
+        self.lastname = lastname
+        self.email = email
+        self.phone_number = phone_number
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+class Employer:
+    def __init__(self, name, lastname, email, phone_number, job):
+        self.name = name
+        self.lastname = lastname
+        self.email = email
+        self.phone_number = phone_number
+        self.job = {
+            "place":job.place,
+            "position":job.position,
+            "building":job.building,
+        }
+
+
