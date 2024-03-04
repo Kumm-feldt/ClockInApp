@@ -17,3 +17,11 @@ import { BootstrapVue } from 'bootstrap-vue'
 import './app.scss'
 
 Vue.use(BootstrapVue)
+
+
+function showSecondForm() {
+    var firstForm = document.getElementById("sign-up");
+    var secondForm = document.getElementById("second-form");
+    firstForm.style.display = "none";
+    secondForm.style.display = "block";
+}

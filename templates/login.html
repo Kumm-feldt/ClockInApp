@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+
+    <title>Title</title>
+</head>
+<body>
+    <div id="login-div" class="login-forms">
+        <form method="POST" id="login">
+            <p>Email (work or personal)</p>
+            <input class="input" type="text" placeholder="email@example.com" name="email">
+            <p>Password</p>
+            <input class="input" type="text" placeholder="Password" name="password">
+            <input class="submit-input" type="submit" value="Login">
+        </form>
+        <p>Don't have an account yet?</p>
+        <a href="#sign-up-div" onclick="toggleForm('login-div', 'sign-up-div')">Sign Up</a>
+        <p>Do you have a masterkey?</p>
+        <a href="#master-key-div" onclick="toggleForm('login-div', 'master-key-div')">Administrator Sign Up</a>
+    </div>
+
+    <div id="master-key-div" style="display: none;" class="login-forms">
+        <form method="POST" class="sign-up" >
+            <h2>Creating an Account</h2>
+            <p>Email</p>
+            <input class="input" type="text" placeholder="email@example.com" name="email">
+            <p>Password</p>
+            <input class="input" type="text" placeholder="Password" name="password">
+            <p>Validate Password</p>
+            <input class="input" type="text" placeholder="Password" name="password">
+            <p>MasterKey</p>
+            <input class="input" type="text" placeholder="masterkey" name="masterkey">
+            <input class="submit-input" type="submit" value="Continue">
+        </form>
+        <p>Already have an Account?</p>
+        <a href="#login-div" onclick="toggleForm('master-key-div', 'login-div')">Login</a>
+        <p>Are you a Student Worker?</p>
+        <a href="#sign-up-div" onclick="toggleForm('master-key-div', 'sign-up-div')">Sign Up</a>
+    </div>
+
+    <div  id="sign-up-div" style="display: none;" class="login-forms">
+        <form method="POST" class="sign-up">
+            <div class="master-key-link">
+                <a href="#master-key-div" onclick="toggleForm('sign-up-div', 'master-key-div')">Sign-up with a MasterKey</a>
+                <p>or</p>
+            </div>
+            <p>First Name</p>
+            <input class="input" type="text" placeholder="John" name="name">
+            <p>Middle Name (optional)</p>
+            <input class="input" type="text" placeholder="Denver" name="middle-name">
+            <p>Last Name</p>
+            <input class="input" type="text" placeholder="Smith" name="last-name">
+            
+            <p>Email</p>
+            <input class="input" type="text" placeholder="email@example.com" name="email">
+            <p>Password</p>
+            <input class="input" type="text" placeholder="Password" name="password">
+            <p>Validate Password</p>
+            <input class="input" type="text" placeholder="Password" name="password">
+         
+            <input class="submit-input" type="submit" value="Continue">
+        </form>
+        <p>Already have an Account?</p>
+        <a href="#login-div" onclick="toggleForm('sign-up-div', 'login-div')">Login</a>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+        function toggleForm(hideId,showId) {
+            document.getElementById(showId).style.display = 'block';
+            document.getElementById(hideId).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

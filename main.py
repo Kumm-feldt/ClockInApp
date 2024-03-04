@@ -1,28 +1,14 @@
 from flask import Flask, render_template, request, url_for, redirect
-import sqlite3
-from sqlite3 import Error
+from flask_sqlalchemy import SQLAlchemy
 
-company = input("Company Name")
+app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:antonio00@localhost/master_admin'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-class Employee:
-    def __init__(self, name, lastname, email, phone_number):
-        self.name = name
-        self.lastname = lastname
-        self.email = email
-        self.phone_number = phone_number
+db = SQLAlchemy(app)
 
+# Define your models here
 
-class Employer:
-    def __init__(self, name, lastname, email, phone_number, job):
-        self.name = name
-        self.lastname = lastname
-        self.email = email
-        self.phone_number = phone_number
-        self.job = {
-            "place":job.place,
-            "position":job.position,
-            "building":job.building,
-        }
-
-
+if __name__ == '__main__':
+    app.run(debug=True)
